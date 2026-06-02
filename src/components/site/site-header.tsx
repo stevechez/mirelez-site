@@ -4,7 +4,16 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Menu, Phone, X } from 'lucide-react';
 
-import { ThemeToggle } from '@/components/site/theme-toggle';
+// import ThemeToggle from '@/components/site/theme-toggle';
+
+import dynamic from 'next/dynamic';
+
+// This forces Next.js to only render this component on the client.
+// The `loading` function returns your skeleton to prevent layout shift!
+const ThemeToggle = dynamic(() => import('@/components/site/theme-toggle'), {
+	ssr: false,
+	loading: () => <div className="size-11" />,
+});
 
 const navItems = [
 	{
@@ -68,19 +77,19 @@ export function SiteHeader() {
 				<div className="relative mx-auto flex max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-14">
 					<Link
 						href="/"
-						className="group"
+						className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--site-brand-strong)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--site-bg)]"
 						aria-label="Mirelez Construction home"
 					>
 						<img
-							src="/images/mirelez-logo-transparent-light.png"
+							src="/images/mirelez-logo-transparent-dark.png"
 							alt="Mirelez Construction logo"
-							className="hidden h-14 w-auto dark:block"
+							className="hidden h-14 w-auto opacity-100 dark:block"
 						/>
 
 						<img
-							src="/images/mirelez-logo-transparent-dark.png"
+							src="/images/mirelez-logo-transparent-light.png"
 							alt="Mirelez Construction logo"
-							className="h-14 w-auto dark:hidden"
+							className="h-14 w-auto opacity-100 dark:hidden"
 						/>
 					</Link>
 

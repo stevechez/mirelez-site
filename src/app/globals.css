@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@variant dark (&:where(.dark, .dark *));
 
 :root {
 	--site-bg: #f4efe6;
@@ -15,12 +16,11 @@
 	--site-brand-soft: rgba(184, 135, 74, 0.12);
 
 	--site-border: rgba(98, 88, 73, 0.22);
-	--site-border-strong: rgba(184, 135, 74, 0.32);
+	--site-border-strong: rgba(184, 135, 74, 0.36);
 
-	--site-header-bg: rgba(244, 239, 230, 0.86);
+	--site-header-bg: rgba(244, 239, 230, 0.78);
 	--site-header-solid: rgba(244, 239, 230, 0.94);
 
-	--site-overlay: rgba(244, 239, 230, 0.72);
 	--site-shadow: rgba(42, 31, 20, 0.16);
 }
 
@@ -44,7 +44,6 @@
 	--site-header-bg: rgba(14, 12, 9, 0.78);
 	--site-header-solid: rgba(14, 12, 9, 0.92);
 
-	--site-overlay: rgba(14, 12, 9, 0.72);
 	--site-shadow: rgba(0, 0, 0, 0.36);
 }
 
@@ -52,17 +51,6 @@ body {
 	background: var(--site-bg);
 	color: var(--site-fg);
 }
-
-@keyframes marquee {
-	from {
-		transform: translateX(0);
-	}
-
-	to {
-		transform: translateX(-50%);
-	}
-}
-
 .form-input {
 	width: 100%;
 	min-height: 3.35rem;
@@ -82,12 +70,12 @@ body {
 
 .form-input:hover {
 	border-color: var(--site-border-strong);
-	background: color-mix(in srgb, var(--site-card) 86%, transparent);
+	background: color-mix(in srgb, var(--site-card) 88%, transparent);
 }
 
 .form-input:focus {
 	border-color: var(--site-brand-strong);
-	box-shadow: 0 0 0 4px color-mix(in srgb, var(--site-brand) 13%, transparent);
+	box-shadow: 0 0 0 4px color-mix(in srgb, var(--site-brand) 14%, transparent);
 }
 
 .form-input::placeholder {
@@ -102,4 +90,83 @@ body {
 .form-select {
 	appearance: none;
 	padding-right: 3rem;
+}
+@keyframes reveal-up {
+	from {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes reveal-soft {
+	from {
+		opacity: 0;
+		filter: blur(8px);
+		transform: scale(0.985);
+	}
+
+	to {
+		opacity: 1;
+		filter: blur(0);
+		transform: scale(1);
+	}
+}
+
+@keyframes line-grow {
+	from {
+		transform: scaleX(0);
+	}
+
+	to {
+		transform: scaleX(1);
+	}
+}
+
+.reveal-up {
+	animation: reveal-up 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal-soft {
+	animation: reveal-soft 950ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.line-grow {
+	transform-origin: left;
+	animation: line-grow 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-delay-100 {
+	animation-delay: 100ms;
+}
+
+.motion-delay-200 {
+	animation-delay: 200ms;
+}
+
+.motion-delay-300 {
+	animation-delay: 300ms;
+}
+
+.motion-delay-400 {
+	animation-delay: 400ms;
+}
+
+.motion-delay-500 {
+	animation-delay: 500ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal-up,
+	.reveal-soft,
+	.line-grow {
+		animation: none !important;
+		opacity: 1 !important;
+		transform: none !important;
+		filter: none !important;
+	}
 }

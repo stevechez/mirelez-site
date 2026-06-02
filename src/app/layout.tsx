@@ -26,10 +26,67 @@ const dmMono = DM_Mono({
 	weight: ['400'],
 });
 
+const siteUrl = 'https://mirelez-site.vercel.app';
+
 export const metadata: Metadata = {
-	title: 'Mirelez Construction — Built With Integrity',
+	metadataBase: new URL(siteUrl),
+	title: {
+		default: 'Mirelez Construction | Central Valley Contractor',
+		template: '%s | Mirelez Construction',
+	},
 	description:
-		'Premium residential and commercial construction in California’s Central Valley.',
+		'Custom homes, remodels, commercial construction, kitchen remodels, bathroom renovations, and project build-outs in California’s Central Valley.',
+	keywords: [
+		'Mirelez Construction',
+		'Central Valley contractor',
+		'Central Valley construction',
+		'custom homes Central Valley',
+		'kitchen remodel Central Valley',
+		'bathroom remodel Central Valley',
+		'commercial construction Central Valley',
+		'residential remodel contractor',
+	],
+	authors: [{ name: 'Mirelez Construction' }],
+	creator: 'Mirelez Construction',
+	publisher: 'Mirelez Construction',
+	openGraph: {
+		type: 'website',
+		locale: 'en_US',
+		url: siteUrl,
+		siteName: 'Mirelez Construction',
+		title: 'Mirelez Construction | Central Valley Contractor',
+		description:
+			'Custom homes, remodels, and commercial construction in California’s Central Valley.',
+		images: [
+			{
+				url: '/images/og-image.jpg',
+				width: 1200,
+				height: 630,
+				alt: 'Mirelez Construction project work',
+			},
+		],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Mirelez Construction | Central Valley Contractor',
+		description:
+			'Custom homes, remodels, and commercial construction in California’s Central Valley.',
+		images: ['/images/og-image.jpg'],
+	},
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			'max-image-preview': 'large',
+			'max-snippet': -1,
+			'max-video-preview': -1,
+		},
+	},
+	alternates: {
+		canonical: '/',
+	},
 };
 
 export default function RootLayout({

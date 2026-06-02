@@ -16,6 +16,10 @@ const footerLinks = [
 		href: '/gallery',
 	},
 	{
+		label: 'Case Studies',
+		href: '/gallery#case-studies',
+	},
+	{
 		label: 'Contact',
 		href: '/#contact',
 	},
