@@ -1,85 +1,85 @@
-import { ArrowLeft, Images } from "lucide-react"
+import { ArrowRight, Link } from 'lucide-react';
 
-import { SiteFooter } from "@/components/site/site-footer"
-import { SiteHeader } from "@/components/site/site-header"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { GalleryLightbox } from '@/components/gallery/gallery-lightbox';
+import { galleryImages } from '@/data/gallery';
 
-const galleryItems = [
-  {
-    title: "Kitchen Remodel",
-    category: "Residential",
-    description: "A transformation-focused remodel designed around finish quality, function, and visual trust.",
-  },
-  {
-    title: "Custom Home Detail",
-    category: "Custom Homes",
-    description: "Craftsmanship details that help prospects understand the standard of work before they call.",
-  },
-  {
-    title: "Commercial Improvement",
-    category: "Commercial",
-    description: "Professional project presentation for business owners evaluating capability and reliability.",
-  },
-]
+export const metadata = {
+	title: 'Gallery | Mirelez Construction',
+	description:
+		'Project gallery for Mirelez Construction — custom homes, remodels, commercial construction, and Central Valley craftsmanship.',
+};
 
 export default function GalleryPage() {
-  return (
-    <main className="min-h-screen overflow-hidden bg-background text-foreground">
-      <SiteHeader />
+	return (
+		<main className="bg-[#0E0C09] text-[#F2EDE3]">
+			<section className="relative overflow-hidden px-5 pb-20 pt-36 sm:px-8 lg:px-14 lg:pb-28 lg:pt-44">
+				<div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_15%,rgba(184,135,74,0.16),transparent_34rem),radial-gradient(circle_at_10%_85%,rgba(212,168,90,0.07),transparent_30rem)]" />
 
-      <section className="relative overflow-hidden border-b border-border/70">
-        <div className="absolute inset-0 noise-overlay" />
+				<div className="relative mx-auto max-w-[1600px]">
+					<div className="flex items-center gap-4 text-[0.58rem] uppercase tracking-[0.38em] text-[#B8874A]">
+						<span className="h-px w-8 bg-[#B8874A]" />
+						Gallery
+					</div>
 
-        <div className="showroom-shell relative py-20 md:py-28">
-          <Button variant="outline" className="rounded-full bg-background/70" asChild>
-            <a href="/">
-              <ArrowLeft className="mr-2 size-4" />
-              Back to Home
-            </a>
-          </Button>
+					<div className="mt-10 grid gap-10 lg:grid-cols-[1fr_0.65fr] lg:items-end">
+						<div>
+							<h1 className="max-w-6xl font-serif text-[4rem] font-light leading-[0.9] tracking-[-0.055em] sm:text-[3.6rem] lg:text-[5.5rem]">
+								Building dreams,
+								<br />
+								one project
+								<br />
+								<em className="italic text-[#D4A85A]">at a time.</em>
+							</h1>
+						</div>
 
-          <div className="mt-12 max-w-4xl">
-            <div className="hero-kicker">Project Gallery</div>
+						<div>
+							<p className="max-w-xl text-lg leading-8 text-[#8A8070] sm:text-lg">
+								There is much to see here. Take your time, look around, and
+								explore the craftsmanship, details, and completed work behind
+								Mirelez Construction.
+							</p>
 
-            <h1 className="mt-8 text-5xl font-semibold leading-[0.95] tracking-[-0.06em] md:text-7xl">
-              A showroom for craftsmanship, transformation, and trust.
-            </h1>
+							<div className="mt-8 flex flex-col gap-4 sm:flex-row">
+								<a
+									href="/before-and-after"
+									className="inline-flex items-center justify-center gap-3 bg-[#B8874A] px-6 py-4 text-[0.75rem] uppercase tracking-[0.28em] text-[#0E0C09] transition hover:bg-[#D4A85A]"
+								>
+									View Before & After
+									<ArrowRight className="size-4" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
-              This gallery will become the visual proof engine for Mirelez Construction:
-              project photos, before-and-after stories, service categories, and case
-              studies that help clients feel confident before reaching out.
-            </p>
-          </div>
-        </div>
-      </section>
+			<section className="px-5 pb-24 sm:px-8 lg:px-14 lg:pb-32">
+				<div className="mx-auto max-w-[1600px]">
+					<GalleryLightbox images={galleryImages} />
+				</div>
+			</section>
 
-      <section className="showroom-shell py-16 md:py-24">
-        <div className="grid gap-6 md:grid-cols-3">
-          {galleryItems.map((item) => (
-            <Card key={item.title} className="premium-card overflow-hidden">
-              <div className="flex aspect-[4/3] items-center justify-center bg-muted">
-                <Images className="size-10 text-muted-foreground" />
-              </div>
+			<section className="border-y border-[#B8874A]/15 bg-[#1C1810] px-5 py-20 sm:px-8 lg:px-14">
+				<div className="mx-auto grid max-w-[1600px] gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+					<div>
+						<p className="text-[0.58rem] uppercase tracking-[0.34em] text-[#B8874A]">
+							Before & After
+						</p>
 
-              <CardContent className="p-6">
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground">
-                  {item.category}
-                </p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-[-0.04em]">
-                  {item.title}
-                </h2>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                  {item.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
+						<h2 className="mt-4 max-w-3xl font-serif text-4xl font-light leading-tight tracking-[-0.04em] text-[#F2EDE3] md:text-5xl">
+							See the transformation behind the finished work.
+						</h2>
+					</div>
 
-      <SiteFooter />
-    </main>
-  )
+					<a
+						href="/before-and-after"
+						className="inline-flex items-center justify-center gap-3 border border-[#B8874A]/45 px-7 py-4 text-[0.65rem] uppercase tracking-[0.28em] text-[#D4A85A] transition hover:bg-[#D4A85A] hover:text-[#0E0C09]"
+					>
+						Open Before & After
+						<ArrowRight className="size-4" />
+					</a>
+				</div>
+			</section>
+		</main>
+	);
 }

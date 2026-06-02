@@ -1,37 +1,105 @@
 @import 'tailwindcss';
 
+:root {
+	--site-bg: #f4efe6;
+	--site-bg-soft: #eee7db;
+	--site-card: #fbf7ef;
+	--site-card-strong: #ffffff;
+
+	--site-fg: #15110c;
+	--site-muted: #625849;
+	--site-muted-strong: #3f372d;
+
+	--site-brand: #b8874a;
+	--site-brand-strong: #8f642c;
+	--site-brand-soft: rgba(184, 135, 74, 0.12);
+
+	--site-border: rgba(98, 88, 73, 0.22);
+	--site-border-strong: rgba(184, 135, 74, 0.32);
+
+	--site-header-bg: rgba(244, 239, 230, 0.86);
+	--site-header-solid: rgba(244, 239, 230, 0.94);
+
+	--site-overlay: rgba(244, 239, 230, 0.72);
+	--site-shadow: rgba(42, 31, 20, 0.16);
+}
+
+.dark {
+	--site-bg: #0e0c09;
+	--site-bg-soft: #15120d;
+	--site-card: #1c1810;
+	--site-card-strong: #211c13;
+
+	--site-fg: #f2ede3;
+	--site-muted: #8a8070;
+	--site-muted-strong: #c4baa8;
+
+	--site-brand: #b8874a;
+	--site-brand-strong: #d4a85a;
+	--site-brand-soft: rgba(184, 135, 74, 0.14);
+
+	--site-border: rgba(184, 135, 74, 0.15);
+	--site-border-strong: rgba(212, 168, 90, 0.45);
+
+	--site-header-bg: rgba(14, 12, 9, 0.78);
+	--site-header-solid: rgba(14, 12, 9, 0.92);
+
+	--site-overlay: rgba(14, 12, 9, 0.72);
+	--site-shadow: rgba(0, 0, 0, 0.36);
+}
+
+body {
+	background: var(--site-bg);
+	color: var(--site-fg);
+}
+
 @keyframes marquee {
-	0% {
+	from {
 		transform: translateX(0);
 	}
 
-	100% {
+	to {
 		transform: translateX(-50%);
 	}
 }
 
-.form-field {
+.form-input {
 	width: 100%;
-	border: 1px solid rgba(138, 126, 110, 0.2);
-	background: rgba(255, 255, 255, 0.04);
-	padding: 0.9rem 1.2rem;
-	color: #f5f0e8;
-	font-size: 0.88rem;
-	font-weight: 300;
+	min-height: 3.35rem;
+	border: 1px solid var(--site-border);
+	background: color-mix(in srgb, var(--site-card) 72%, transparent);
+	padding: 0.95rem 1rem;
+	color: var(--site-fg);
+	font-size: 0.92rem;
+	line-height: 1.45;
 	outline: none;
-	transition: border-color 0.3s;
-	border-radius: 0;
+	transition:
+		border-color 0.25s ease,
+		background 0.25s ease,
+		box-shadow 0.25s ease;
+	border-radius: 0.9rem;
 }
 
-.form-field::placeholder {
-	color: rgba(138, 126, 110, 0.55);
+.form-input:hover {
+	border-color: var(--site-border-strong);
+	background: color-mix(in srgb, var(--site-card) 86%, transparent);
 }
 
-.form-field:focus {
-	border-color: #c4923a;
+.form-input:focus {
+	border-color: var(--site-brand-strong);
+	box-shadow: 0 0 0 4px color-mix(in srgb, var(--site-brand) 13%, transparent);
 }
 
-.form-field option {
-	background: #1a1510;
-	color: #f5f0e8;
+.form-input::placeholder {
+	color: color-mix(in srgb, var(--site-muted) 58%, transparent);
+}
+
+.form-input option {
+	background: var(--site-card);
+	color: var(--site-fg);
+}
+
+.form-select {
+	appearance: none;
+	padding-right: 3rem;
 }

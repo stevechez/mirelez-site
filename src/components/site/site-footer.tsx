@@ -1,7 +1,5 @@
-import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 
 const footerLinks = [
 	{
@@ -9,16 +7,12 @@ const footerLinks = [
 		href: '/#services',
 	},
 	{
-		label: 'Gallery',
-		href: '/gallery',
-	},
-	{
-		label: 'Transformations',
-		href: '/#transformations',
-	},
-	{
 		label: 'Process',
 		href: '/#process',
+	},
+	{
+		label: 'Gallery',
+		href: '/gallery',
 	},
 	{
 		label: 'Contact',
@@ -28,98 +22,68 @@ const footerLinks = [
 
 export function SiteFooter() {
 	return (
-		<footer className="border-t border-border/70 bg-card/40">
-			<div className="showroom-shell">
-				<div className="grid gap-12 py-16 lg:grid-cols-[1.1fr_0.9fr]">
-					<div>
-						<p className="text-xs font-bold uppercase tracking-[0.32em] text-muted-foreground">
+		<footer className="border-t border-[color:var(--site-border)] bg-[var(--site-bg)]">
+			<div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-14">
+				<div className="flex flex-col gap-10 border-b border-[color:var(--site-border)] py-10 lg:flex-row lg:items-center lg:justify-between">
+					<Link href="/" className="group">
+						<p className="font-serif text-xl font-light uppercase tracking-[0.22em] text-[var(--site-fg)] transition group-hover:text-[var(--site-brand-strong)]">
 							Mirelez Construction
 						</p>
-
-						<h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-[0.95] tracking-[-0.06em] md:text-6xl">
-							Craftsmanship made visible.
-							<br />
-							Trust made immediate.
-						</h2>
-
-						<p className="mt-6 max-w-xl text-base leading-8 text-muted-foreground">
-							A high-end digital showroom designed to help homeowners and
-							businesses understand the quality, process, and professionalism
-							behind every project before they ever make contact.
+						<p className="mt-2 text-[0.58rem] uppercase tracking-[0.34em] text-[var(--site-muted)]">
+							Central Valley · California
 						</p>
+					</Link>
 
-						<div className="mt-8 flex flex-col gap-3 sm:flex-row">
-							<Button className="h-11 rounded-full px-6" asChild>
-								<Link href="/#contact">
-									Request Consultation
-									<ArrowUpRight className="ml-2 size-4" />
-								</Link>
-							</Button>
-
-							<Button
-								variant="outline"
-								className="h-11 rounded-full bg-background/70 px-6"
-								asChild
+					<nav className="flex flex-wrap gap-x-7 gap-y-3">
+						{footerLinks.map(link => (
+							<a
+								key={link.href}
+								href={link.href}
+								className="text-[0.62rem] uppercase tracking-[0.28em] text-[var(--site-muted)] transition hover:text-[var(--site-fg)]"
 							>
-								<a href="/gallery">View Projects</a>
-							</Button>
-						</div>
-					</div>
+								{link.label}
+							</a>
+						))}
+					</nav>
+				</div>
 
-					<div className="grid gap-8 sm:grid-cols-2">
-						<div>
-							<p className="text-xs font-bold uppercase tracking-[0.26em] text-muted-foreground">
-								Explore
-							</p>
+				<div className="grid gap-8 py-10 lg:grid-cols-[1fr_auto] lg:items-end">
+					<p className="max-w-2xl font-serif text-3xl font-light leading-tight tracking-[-0.035em] text-[var(--site-fg)] md:text-4xl">
+						Building with integrity,
+						<br />
+						from the{' '}
+						<em className="italic text-[var(--site-brand-strong)]">
+							ground up.
+						</em>
+					</p>
 
-							<nav className="mt-5 grid gap-3">
-								{footerLinks.map(link => (
-									<a
-										key={link.href}
-										href={link.href}
-										className="text-sm font-medium text-muted-foreground transition hover:text-foreground"
-									>
-										{link.label}
-									</a>
-								))}
-							</nav>
-						</div>
+					<div className="grid gap-3 text-sm text-[var(--site-muted)]">
+						<a
+							href="tel:2096311892"
+							className="flex items-center gap-3 transition hover:text-[var(--site-fg)] lg:justify-end"
+						>
+							<Phone className="size-4 text-[var(--site-brand)]" />
+							209.631.1892
+						</a>
 
-						<div>
-							<p className="text-xs font-bold uppercase tracking-[0.26em] text-muted-foreground">
-								Contact
-							</p>
+						<a
+							href="mailto:MirelezConstruction@gmail.com"
+							className="flex items-center gap-3 transition hover:text-[var(--site-fg)] lg:justify-end"
+						>
+							<Mail className="size-4 text-[var(--site-brand)]" />
+							MirelezConstruction@gmail.com
+						</a>
 
-							<div className="mt-5 grid gap-4 text-sm text-muted-foreground">
-								<a
-									href="tel:2096311892"
-									className="flex items-center gap-3 transition hover:text-foreground"
-								>
-									<Phone className="size-4" />
-									209.631.1892
-								</a>
-
-								<a
-									href="mailto:info@mirelezconstruction.com"
-									className="flex items-center gap-3 transition hover:text-foreground"
-								>
-									<Mail className="size-4" />
-									info@mirelezconstruction.com
-								</a>
-
-								<div className="flex items-center gap-3">
-									<MapPin className="size-4" />
-									Central Valley, California
-								</div>
-							</div>
-						</div>
+						<p className="flex items-center gap-3 lg:justify-end">
+							<MapPin className="size-4 text-[var(--site-brand)]" />
+							Central Valley, California
+						</p>
 					</div>
 				</div>
 
-				<Separator />
-
-				<div className="flex py-6 text-xs text-muted-foreground">
+				<div className="flex flex-col gap-3 border-t border-[color:var(--site-border)] py-6 text-[0.58rem] uppercase tracking-[0.28em] text-[var(--site-muted)] sm:flex-row sm:items-center sm:justify-between">
 					<p>© 2026 Mirelez Construction. All rights reserved.</p>
+					<p>Custom Homes · Remodels · Commercial Projects</p>
 				</div>
 			</div>
 		</footer>

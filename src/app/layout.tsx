@@ -1,5 +1,10 @@
 import type { Metadata } from 'next';
 import { DM_Mono, DM_Sans, Playfair_Display } from 'next/font/google';
+
+import { ThemeProvider } from '@/components/providers/theme-provider';
+import { SiteFooter } from '@/components/site/site-footer';
+import { SiteHeader } from '@/components/site/site-header';
+
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -35,9 +40,13 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${playfair.variable} ${dmSans.variable} ${dmMono.variable} antialiased`}
+				className={`${playfair.variable} ${dmSans.variable} ${dmMono.variable} bg-[var(--site-bg)] font-sans text-[var(--site-fg)] antialiased`}
 			>
-				{children}
+				<ThemeProvider>
+					<SiteHeader />
+					{children}
+					<SiteFooter />
+				</ThemeProvider>
 			</body>
 		</html>
 	);
