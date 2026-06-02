@@ -72,12 +72,13 @@ export function SiteHeader() {
 						aria-label="Mirelez Construction home"
 					>
 						<img
-							src="/images/mirelez-logo-transparent-dark.png"
+							src="/images/mirelez-logo-transparent-light.png"
 							alt="Mirelez Construction logo"
 							className="hidden h-14 w-auto dark:block"
 						/>
+
 						<img
-							src="/images/mirelez-logo-transparent-light.png"
+							src="/images/mirelez-logo-transparent-dark.png"
 							alt="Mirelez Construction logo"
 							className="h-14 w-auto dark:hidden"
 						/>

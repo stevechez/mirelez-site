@@ -138,7 +138,6 @@ export default function HomePage() {
 			{/* <Marquee /> */}
 			<ServicesSection />
 			<ProcessSection />
-			{/* <WorkSection /> */}
 			<ContactSection />
 		</main>
 	);
@@ -191,17 +190,6 @@ function MobileMenu({
 		</div>
 	);
 }
-
-// function HeroProof({ label, value }: { label: string; value: string }) {
-// 	return (
-// 		<div className="border border-[#B8874A]/15 bg-[#B8874A]/[0.035] px-4 py-4 backdrop-blur">
-// 			<p className="text-[0.52rem] uppercase tracking-[0.3em] text-[#8A8070]">
-// 				{label}
-// 			</p>
-// 			<p className="mt-2 text-sm font-medium text-[#F2EDE3]">{value}</p>
-// 		</div>
-// 	);
-// }
 
 function HeroSection() {
 	return (
@@ -387,7 +375,7 @@ function ServicesSection() {
 	return (
 		<section
 			id="services"
-			className="relative scroll-mt-24 overflow-hidden border-y border-[color:var(--site-border)] bg-[var(--site-card)] px-5 py-24 text-[var(--site-fg)] sm:px-8 lg:px-14 lg:py-32"
+			className="relative scroll-mt-24 overflow-hidden border-y border-[color:var(--site-border)] bg-[var(--site-card)] px-5 py-24 text-[var(--site-fg)] sm:px-8 lg:px-14 lg:py-22"
 		>
 			<div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,var(--site-brand-soft),transparent_34rem),radial-gradient(circle_at_88%_78%,color-mix(in_srgb,var(--site-brand-strong)_10%,transparent),transparent_30rem)]" />
 
@@ -449,7 +437,7 @@ function ProcessSection() {
 	return (
 		<section
 			id="process"
-			className="relative scroll-mt-24 overflow-hidden bg-[#1C1810] px-5 py-24 sm:px-8 lg:px-14 lg:py-32"
+			className="relative scroll-mt-24 overflow-hidden bg-[#1C1810] px-5 py-24 sm:px-8 lg:px-14 lg:py-22"
 		>
 			<div className="absolute right-6 top-8 font-serif text-[24vw] font-light leading-none text-[#B8874A]/[0.035]">
 				04
@@ -562,7 +550,7 @@ function ContactSection() {
 	return (
 		<section
 			id="contact"
-			className="grid scroll-mt-24 gap-14 bg-[#1C1810] px-5 py-24 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:px-14 lg:py-32"
+			className="grid scroll-mt-24 gap-14 bg-[#1C1810] px-5 py-18 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:px-14 lg:py-22"
 		>
 			<div>
 				<Eyebrow>Contact Us</Eyebrow>

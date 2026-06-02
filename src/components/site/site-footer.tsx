@@ -1,5 +1,6 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone, Wallet } from 'lucide-react';
 import Link from 'next/link';
+import { InstagramIcon } from '@/components/icons/instagram-icon';
 
 const footerLinks = [
 	{
@@ -72,6 +73,16 @@ export function SiteFooter() {
 						>
 							<Mail className="size-4 text-[var(--site-brand)]" />
 							MirelezConstruction@gmail.com
+						</a>
+
+						<a
+							href="https://www.instagram.com/mirelezconstruction"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="flex items-center gap-3 transition hover:text-[var(--site-fg)] lg:justify-end"
+						>
+							<InstagramIcon className="size-4 text-[var(--site-brand)]" />
+							Instagram
 						</a>
 
 						<p className="flex items-center gap-3 lg:justify-end">
